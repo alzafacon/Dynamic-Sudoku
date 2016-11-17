@@ -10,12 +10,16 @@ private:
 
 	bool _isClue[9][9]; //table to identify clues and non-clues (guess cells)
 
-	bool _isInHouse[9][9];  //tables reporting values present (whether as clues or guesses)
-	bool _isInRow  [9][9];  //in each house, row, and column (each numbered 0-8)
+        //tables reporting values present (whether as clues or guesses)
+        //in each house, row, and column (each numbered 0-8)
+        // the first index is to select an element
+        // the second index is to specify an entry value
+	bool _isInHouse[9][9];
+	bool _isInRow  [9][9]; 
 	bool _isInCol  [9][9];
 
 	bool isClue(int r, int c);  //getter methods
-    bool rowHas(int r, int n);
+        bool rowHas(int r, int n);
 	bool colHas(int c, int n);
 	bool houseHas(int h, int n);
 
@@ -27,7 +31,8 @@ private:
 	void backtrack(int& r, int& c, int& g); //it's a long story
 
 public:
-	SBoard();
+    // constructor
+    SBoard();
 
     void print();
 
@@ -35,6 +40,7 @@ public:
 
     bool isSolved();
     int getCell(int r, int c);
+    
     static int getHouse(int r, int c);
 };
 
