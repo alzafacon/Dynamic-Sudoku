@@ -94,16 +94,41 @@ bool SBoard::houseHas(int h, int n){
 
 bool SBoard::isValid(int r, int c, int n){
 
-	if (n < 1 || 9 < n)
+    //the board may contain only numbers between 1 and 9
+	if ( !(1 <= n && n <= 9) ){
         return false;
+	}
 
-	if (r < 0 || 8 < r)
+    //the row index should be between 0 and 8
+	else if ( !(0 <= r && r <= 8) ){
         return false;
+	}
 
-    if (c < 0 || 8 < c)
+    //the column index should be between 0 and 8
+    else if ( !(0 <= c && c <= 8) ){
         return false;
+    }
 
-    return ( !houseHas(getHouse(r,c), n) && !rowHas(r, n) && !colHas(c, n) );
+    //the number should not occur in the house
+    else if ( houseHas(getHouse(r, c), n) ){
+        return false;
+    }
+
+    //the number should not occur in the row
+    else if( rowHas(r, n) ){
+        return false;
+    }
+
+    //the number should not occur in the column
+    else if( colHas(c, n) ){
+        return false;
+    }
+
+    //all constraints passed, n is valid at (r, c)
+    // a valid value does not mean that value is correct (this is why we need backtrack)
+    else {
+        return true;
+    }
 }
 
 void SBoard::backtrack(int& r, int& c, int& g){
