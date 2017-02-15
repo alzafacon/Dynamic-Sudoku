@@ -12,13 +12,16 @@ private:
 
 	bool _isClue[9][9]; //table to identify clues and non-clues (guess cells)
 
-	bool _isInHouse[9][9];  //tables reporting values present (includes clues and guesses)
-	bool _isInRow  [9][9];  //the first index is th house, row, and column (each numbered 0-8)
-	bool _isInCol  [9][9];  //the second index is the value (minus one)
-	//ex. "does row 4 have the number 8?" ==> _isInRow[4][8-1]
+	//tables reporting values present (includes clues and guesses)
+	//the first index is th house, row, and column (each numbered 0-8)
+	//the second index is the value (minus one)
+	//ex. "does row 4 have the number 8?" ==> _isInRow[4][8-1]        
+	bool _isInHouse[9][9];
+	bool _isInRow  [9][9]; 
+	bool _isInCol  [9][9];
 
 	bool isClue(int r, int c);  //getter methods
-    bool rowHas(int r, int n);
+        bool rowHas(int r, int n);
 	bool colHas(int c, int n);
 	bool houseHas(int h, int n);
 
@@ -30,7 +33,8 @@ private:
 	void backtrack(int& r, int& c, int& g); //it's a long story
 
 public:
-	SBoard();
+    // constructor
+    SBoard();
 
     void print();
 
