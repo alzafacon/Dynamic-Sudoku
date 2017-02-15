@@ -38,6 +38,7 @@ public:
 
     bool isSolved();
     int getCell(int r, int c);
+    
     static int getHouse(int r, int c);
 };
 
