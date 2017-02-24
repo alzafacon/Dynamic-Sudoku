@@ -6,3 +6,5 @@ When deciding if a given value is valid given the context, tables (maintained by
 
 This is also an example of dynamic programming because the occurences of the numbers are not determined by traversing the board, instead look up tables are used.
 
+<strong>I was wrong about his being a dynamic program. This is not really a dynamic program because there is not a divide and conquer algorithm. SubsetSum <em>is<em> an example of dynamic programming.<strong>
+
